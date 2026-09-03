@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Xaviix - Graphiste 2D & Directeur d'Éclipse Studio</title>
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --card-bg: rgba(31, 40, 51, 0.90);
+            --text-color: #c5c6c7;
+            --accent-color: #66fcf1;
+            --accent-dim: #45a29e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(rgba(11, 12, 16, 0.80), rgba(11, 12, 16, 0.90)), 
+                        url('https://i.ibb.co/N6dJ0SBV/aiduck-ai-generated-8877661-1920.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(11, 12, 16, 0.95) 0%, rgba(31, 40, 51, 0.85) 100%);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-dim);
+            backdrop-filter: blur(5px);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(102, 252, 241, 0.3);
+            word-wrap: break-word;
+        }
+
+        header h1 span {
+            color: var(--accent-color);
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: var(--accent-dim);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            color: #fff;
+            margin-bottom: 1.2rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 0.8rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .bio {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2.5rem;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(102, 252, 241, 0.1);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(102, 252, 241, 0.3);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            background-color: rgba(44, 53, 49, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-dim);
+            font-weight: bold;
+        }
+
+        .card-content {
+            padding: 1.2rem;
+        }
+
+        .card-content h3 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .skills-list li {
+            background-color: var(--card-bg);
+            border: 1px solid var(--accent-dim);
+            color: var(--accent-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-box {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--accent-dim);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 1.2rem 0;
+        }
+
+        .contact-item {
+            background: rgba(11, 12, 16, 0.6);
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .contact-item span.label {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .contact-item span.value {
+            color: var(--accent-color);
+            font-family: monospace;
+            font-size: 1rem;
+            word-break: break-all;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background-color: rgba(5, 6, 8, 0.95);
+            border-top: 1px solid #1f2833;
+            font-size: 0.85rem;
+            margin-top: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background 0.3s ease, transform 0.2s ease;
+            width: 100%;
+            max-width: 280px;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-dim);
+            transform: translateY(-2px);
+        }
+
+        /* OPtiMISATIONS SPECIFIQUES MOBILE */
+        @media (max-width: 600px) {
+            header {
+                padding: 2.5rem 1rem;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 1.5rem 0.8rem;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contact-item span.value {
+                margin-top: 0.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><span>Xaviix</span></h1>
+        <p>Graphiste 2D Jeux Vidéo & Directeur d'Éclipse Studio</p>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2 class="section-title">À Propos</h2>
+            <div class="bio">
+                <p>Moi c'est <strong>Xaviix</strong>. Spécialisé dans la création d'univers visuels pour le jeu vidéo indépendant, je combine direction artistique et graphisme 2D (Pixel Art, Concept Art, UI Design). En tant que directeur d'<strong>Éclipse Studio</strong>, je supervise nos projets de leur conception narrative à leur intégration visuelle finale.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Compétences</h2>
+            <ul class="skills-list">
+                <li>Concept Art 2D</li>
+                <li>Pixel Art & Animation</li>
+                <li>Direction Artistique</li>
+                <li>Design d'Interface (UI/UX)</li>
+                <li>Gestion de Projet Indie</li>
+                <li>Level Design Visuel</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="section-title">Projets & Réalisations</h2>
+            <div class="portfolio-grid">
+                <div class="card">
+                    <div class="card-img">[ Visuel Projet 1 ]</div>
+                    <div class="card-content">
+                        <h3>Project Eclipse</h3>
+                        <p>Jeu d'action/plateforme 2D. Direction artistique globale, spritework et animation réalisés par Xaviix.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">[ Visuel Projet 2 ]</div>
+                    <div class="card-content">
+                        <h3>Neon Odyssey</h3>
+                        <p>Rogue-lite cyberpunk. Création des décors vectoriels et de l'interface utilisateur dynamique.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">[ Visuel Projet 3 ]</div>
+                    <div class="card-content">
+                        <h3>Bestiaire & Assets 2D</h3>
+                        <p>Série de sprites et chara-designs originaux conçus pour les jeux d'Éclipse Studio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-box">
+                <p>Une collaboration en vue ou un projet pour Éclipse Studio ? Contactez-moi directement :</p>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="label">Adresse e-mail</span>
+                        <span class="value">mail-eclipsestudio@protonmail.com</span>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="label">Discord</span>
+                        <span class="value">xaviix_mc</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <a href="mailto:mail-eclipsestudio@protonmail.com" class="btn">Envoyer un e-mail</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Éclipse Studio — Tous droits réservés par Xaviix.</p>
+    </footer>
+
+</body>
+</html>
